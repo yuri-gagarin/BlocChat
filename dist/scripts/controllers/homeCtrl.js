@@ -2,11 +2,18 @@
     function HomeCtrl(Room, $uibModal) {
         this.chatRooms = Room.all;
         
+        this.selectRoom = function (roomId) {
+            this.currentRoom = roomId;
+            this.messages = Room.getMessages(this.currentRoom.$id);
+
+        }
+        
+        
         this.openModal = function() {
             var modalWindow = $uibModal.open({
                 templateUrl: '/templates/modal.html',
                 controller: function ($scope, $uibModalInstance) {
-                    $scope.roomName = {name: ''};
+                    $scope.newRoom = {name: ''};
                     $scope.cancelAction = function() {
                         $uibModalInstance.dismiss('cancel');
                     };

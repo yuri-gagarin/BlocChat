@@ -13,12 +13,17 @@
     
     <div class="list-rooms">
         <div class="chatrooms" ng-repeat="room in home.chatRooms">
-            <a class=room-selector>click</a>
+            <a class=room-selector ng-click="home.selectRoom(room)">{{room.name}}</a>
         </div>
     </div>
 </div>
 
 
 
-<div class="col-md-8 main-view clearfix"></div>
+<div class="col-md-8 main-view clearfix">
+    <h4>This is: {{home.currentRoom.name}}</h4>
+    <p ng-repeat="message in home.messages">
+    <strong>{{message.username}}  {{message.content}}  {{message.sentAt}}</strong>
+    </p>
+</div>
 </section>
