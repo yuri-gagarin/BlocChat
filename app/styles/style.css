@@ -16,9 +16,10 @@
 
 .main-view {
     float: right;
-    height: 1000px;
+    height: 800px;
     width: 75%;
     background-color: grey;
+    overflow: auto;
 }
 #addRoom {
     position: relative;
@@ -52,6 +53,11 @@
     background-size: cover;
 }
 */
+.message-view {
+    position: fixed;
+    bottom: 0px;
+}
+
 body {
     background-image: url(../assets/images/chalkboard.jpg);
 }

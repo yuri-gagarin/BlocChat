@@ -3,11 +3,11 @@
         <h4>Please create a username</h4>
     </div>
     <div class="modal-input">
-        <div class="modal-form">
-            <input type="text" placeholder="Please enter a username" class="form-control" ng-model="newUserName">
-        </div>
+        <form class="modal-form" name="username">
+            <input type="text" placeholder="Please enter a username" class="form-control" name="newUserName" ng-minlength="nameLength" ng-model="newUserName" required>
+        </form>
     </div>
     <div class="modal-buttons">
-    <button class="btn-success" type="button" ng-click="createUser()">Create</button>
+    <button class="btn-success" type="button" ng-show="username.newUserName.$valid" ng-click="createUser()">Create</button>
     </div>
 </div>

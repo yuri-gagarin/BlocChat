@@ -16,11 +16,13 @@
     
     function BlocChatCookies($cookies, $uibModal) {
         var currentUser = $cookies.get('blocChatCurrentUser');
+        console.log(currentUser);
         if (!currentUser || currentUser === '') {
             var userModal = $uibModal.open({
             // Modal configuration object properties
                 templateUrl: '/templates/username.html',
                 controller: function ($scope, $uibModalInstance) {
+                    $scope.nameLength = 1;
                     $scope.newUserName = '';
                     $scope.createUser = function() {
                         $uibModalInstance.close($scope.newUserName);
@@ -29,7 +31,7 @@
                 size: 'sm'
             });
             userModal.result.then(function(data) {
-                $cookies.put(currentUser, data);
+                $cookies.put('blocChatCurrentUser', data);
             });
         }   
     }
